@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 
 @Entity //é uma anotação que o HIBERNATE depois vai vim e ler esse mecanismo para montar as minhas tabelas do banco de dados de forma automatica
 @Table( name = "Usuario" ) // é uma anotação que eu digo qual nome de tabela de banco de dados eu quero 
@@ -29,10 +30,10 @@ public class UsuarioEntity {
 
     @Column(nullable = false)
     private String email;
-// vai fazer o encapsulamento obrigatorio dos meus objetos
-    public Long getId() {
-        return id;
-    }
+
+    @Version // Adicionando o campo de versão
+    private Integer version;
+
 //conversâo dom meu usuario DTO para Entity da mesma forma que eu fiz no meu DTO. As anotaçôes dos passos estâo lá
     public UsuarioEntity(UsuarioEntity usuario) {  
        BeanUtils.copyProperties(usuario, this);
@@ -40,6 +41,11 @@ public class UsuarioEntity {
 
     public UsuarioEntity(){
     }
+    // vai fazer o encapsulamento obrigatorio dos meus objetos
+    public Long getId() {
+        return id;
+    }
+    
 
     public void setId(Long id) {
         this.id = id;

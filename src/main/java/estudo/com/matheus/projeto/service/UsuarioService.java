@@ -12,8 +12,7 @@ import java.util.Optional;
 public class UsuarioService {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
-
+    private UsuarioRepository usuarioRepository;//injeção de dependencias,Isso permite que o controlador delegue a lógica de negócios para operações de usuário à camada de serviço
     public UsuarioEntity criarUsuario(UsuarioEntity usuario) {
         // Adicione validações ou lógica de negócios aqui, se necessário
         return usuarioRepository.save(usuario);

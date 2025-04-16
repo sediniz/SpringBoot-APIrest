@@ -11,7 +11,7 @@ public class UsuarioDTO {
     private String login;
     private String senha;
     private String email;
-//utilitario para fazer a conversâo de usuario ENTITY para um usuario DTO dentro do meu DTO, vou replicar o meusmo passo no meu entity para que ele receba as informações do meu DTO
+//utilitario para fazer a conversâo de usuario ENTITY para um usuario DTO dentro do meu DTO, vou replicar o mesmo passo no meu entity para que ele receba as informações do meu DTO
     public UsuarioDTO(UsuarioDTO usuario) {  
        BeanUtils.copyProperties(usuario, this);//BeansUtil.copyProperties(usuario, this); é um construtor que ajuda a gente a fazer essa coversâo de usuario para this"referencia do meu objeto atual"
     }
